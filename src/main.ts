@@ -1,5 +1,6 @@
 import * as discord from 'discord.js';
 import * as argparse from 'argparse';
+import * as fs from 'fs';
 import * as utils from './utils';
 
 async function main(): Promise<void> {
@@ -7,10 +8,12 @@ async function main(): Promise<void> {
   parser.add_argument('--guild-id', {
     required: true,
   });
-  parser.add_argument('--bot-token', {
+  parser.add_argument('--bot-token-file', {
     required: true,
   });
   let cliArgs = parser.parse_args();
+
+  let botToken = fs.readFileSync(cliArgs.bot_token_file, 'utf8').trim();
 
   let client = new discord.Client();
 
@@ -51,7 +54,7 @@ async function main(): Promise<void> {
     }
   });
 
-  await client.login(cliArgs.bot_token);
+  await client.login(botToken);
 }
 
 void main();
