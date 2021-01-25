@@ -1,0 +1,12 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "build",
+    "sourceMap": true,
+    "strict": true,
+    "module": "CommonJS",
+    "target": "ES2019",
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

@@ -1,0 +1,19 @@
+extends: eslint-config-dmitmel/presets/node
+parserOptions:
+  sourceType: module
+
+rules:
+  func-names: off
+
+  node/no-unsupported-features/es-syntax:
+    - error
+    - ignores:
+        - modules
+        - dynamicImport
+
+overrides:
+  - files:
+      - 'src/**/*.ts'
+    extends: eslint-config-dmitmel/presets/typescript-with-type-checking-addon
+    parserOptions:
+      project: 'tsconfig.json'
