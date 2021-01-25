@@ -2,6 +2,14 @@ extends: eslint-config-dmitmel/presets/node
 parserOptions:
   sourceType: module
 
+settings:
+  node:
+    tryExtensions:
+      - .js
+      - .ts
+      - .json
+      - .node
+
 rules:
   func-names: off
 
